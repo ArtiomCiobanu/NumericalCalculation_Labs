@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericalCalculation_Labs", "NumericalCalculation_Labs\NumericalCalculation_Labs.csproj", "{091D65D0-D354-4F6B-9E4A-6057737B57BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{091D65D0-D354-4F6B-9E4A-6057737B57BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091D65D0-D354-4F6B-9E4A-6057737B57BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091D65D0-D354-4F6B-9E4A-6057737B57BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091D65D0-D354-4F6B-9E4A-6057737B57BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
