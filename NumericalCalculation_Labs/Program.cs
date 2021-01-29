@@ -18,18 +18,15 @@ namespace NumericalCalculation_Labs
     internal class Program
     {
         private static double F(double x)
-            => 1.5 - 0.4 * Math.Sqrt(Math.Pow(x, 3)) + 0.5 * Math.Log(x);
+            => 1.5 - 0.4 * Math.Sqrt(Math.Pow(x, 3)) - 0.5 * Math.Log(x);
 
         private static void Main()
         {
-            var r = FindRoot(2, 0.5);
-            Console.WriteLine($"Первый корень находится между {r.A} и {r.B}");
-
-            var r2 = FindRoot(2, 0.5, false);
-            Console.WriteLine($"Первый корень находится между {r2.A} и {r2.B}");
+            var r2 = SeparateRoot(5, 0.5, false);
+            Console.WriteLine($"Корень находится между {r2.A} и {r2.B}");
         }
 
-        private static Root FindRoot(
+        private static Root SeparateRoot(
             double startingPoint,
             double step,
             bool moveRight = true)
