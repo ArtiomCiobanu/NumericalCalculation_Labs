@@ -54,41 +54,39 @@ namespace Lab2
 
         private static double ChordMethod(double a, double b, double precision)
         {
-            if (F(a) * SecondDerivative(a) < 0)
+            double x = a;
+            if (F(a) * SecondDerivative(a) > 0)
             {
-                var c = a;
-                a = b;
-                b = c;
+                x = b;
             }
 
             double difference = 0;
             do
             {
-                difference = F(a) * (b - a) / (F(b) - F(a));
+                difference = F(x) * (b - x) / (F(b) - F(x));
 
-                a -= difference;
+                x -= difference;
             } while (difference > precision);
 
-            return a;
+            return x;
         }
 
         private static double NewtonMethod(double a, double b, double precision)
         {
+            double x = a;
             if (F(a) * SecondDerivative(a) > 0)
             {
-                var c = a;
-                a = b;
-                b = c;
+                x = b;
             }
 
             double difference = 0;
             do
             {
-                difference = F(a) / FirstDerivative(a);
-                a += difference;
-            } while (difference > precision);
+                difference = Math.Abs(F(x) / FirstDerivative(x));
+                x += difference;
+            } while (difference > precision && F(x) * F(b) < 0);
 
-            return a;
+            return x;
         }
 
         private static double SecantMethod(double a, double b, double precision)
