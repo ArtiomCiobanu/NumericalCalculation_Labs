@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericalCalculation_Labs", "NumericalCalculation_Labs\NumericalCalculation_Labs.csproj", "{091D65D0-D354-4F6B-9E4A-6057737B57BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1", "Lab1\Lab1.csproj", "{091D65D0-D354-4F6B-9E4A-6057737B57BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2", "Lab2\Lab2.csproj", "{A721B652-84B7-40D0-9FA6-623D5D3069DC}"
 EndProject

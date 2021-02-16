@@ -58,6 +58,7 @@ namespace Lab2
             if (F(a) * SecondDerivative(a) > 0)
             {
                 x = b;
+                b = a;
             }
 
             double difference = 0;
@@ -66,7 +67,7 @@ namespace Lab2
                 difference = F(x) * (b - x) / (F(b) - F(x));
 
                 x -= difference;
-            } while (difference > precision);
+            } while (difference > precision & F(x) * F(b) < 0);
 
             return x;
         }
@@ -77,6 +78,7 @@ namespace Lab2
             if (F(a) * SecondDerivative(a) > 0)
             {
                 x = b;
+                b = a;
             }
 
             double difference = 0;
@@ -91,21 +93,21 @@ namespace Lab2
 
         private static double SecantMethod(double a, double b, double precision)
         {
+            double x = a;
             if (b > a)
             {
-                var c = a;
-                a = b;
-                b = c;
+                x = b;
+                b = a;
             }
 
             double difference = 0;
             do
             {
-                difference = F(a) * (b - a) / (F(b) - F(a));
-                a -= difference;
+                difference = F(x) * (b - x) / (F(b) - F(x));
+                x -= difference;
             } while (difference > precision);
 
-            return a;
+            return x;
         }
     }
 }
