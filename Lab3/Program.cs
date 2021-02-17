@@ -1,4 +1,7 @@
-﻿namespace Lab3
+﻿using System;
+using System.Collections.Generic;
+
+namespace Lab3
 {
     internal class Program
     {
@@ -39,11 +42,11 @@
 
         private static void IterationMethod()
         {
-            double[,] x = new double[length, length];
+            double[,] a = new double[length, length];
 
             for (int i = 0; i < length; i++)
             {
-                x[i, 0] = B[i] / A[i, i];
+                a[i, 0] = B[i] / A[i, i];
 
                 int pos = 1;
 
@@ -54,12 +57,80 @@
                         continue;
                     }
 
-                    x[i, pos] = -A[i, j] / A[i, i];
+                    a[i, pos] = A[i, j] / A[i, i];
                     pos++;
                 }
             }
 
-            x.Display(length);
+            a.Display(length);
+            Console.WriteLine();
+
+            for (int i = 0; i < length; i++)
+            {
+                var c = a[i, i];
+                a[i, i] = a[i, 0];
+                a[i, 0] = c;
+            }
+
+            a.Display(length);
+
+            var x = GetMainDiagonal(a);
+            var e = 0.01;
+
+            bool continueIteration = true;
+            while (continueIteration)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    for (int j = 0; j < length; j++)
+                    {
+                        if (i == j)
+                        {
+                            continue;
+                        }
+
+                        a[i, i] -= a[i, j] * x[j];
+                    }
+                }
+
+                var newX = GetMainDiagonal(a);
+
+                for (int i = 0; i < length; i++)
+                {
+                    if (Math.Abs(x[i] - newX[i]) < e || newX[i] < 0)
+                    {
+                        continueIteration = false;
+                    }
+                }
+
+                if (continueIteration)
+                {
+                    x = newX;
+
+                    Console.WriteLine("------------------------------");
+                    a.Display(length);
+                    //Console.WriteLine();
+                    //x.Display();
+                    //newX.Display();
+                }
+            }
+
+            Console.WriteLine("Ответ:");
+            for (int i = 0; i < length; i++)
+            {
+                Console.WriteLine($"x[{i}] = {x[i]}");
+            }
+        }
+
+        private static double[] GetMainDiagonal(double[,] mtx)
+        {
+            var x = new double[length];
+            for (int i = 0; i < length; i++)
+            {
+                x[i] = mtx[i, i];
+            }
+
+            return x;
         }
     }
 }

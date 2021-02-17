@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab3
 {
@@ -15,6 +16,16 @@ namespace Lab3
 
                 Console.WriteLine();
             }
+        }
+
+        public static void Display(this IEnumerable<double> array)
+        {
+            foreach (var t in array)
+            {
+                Console.Write(t + " ");
+            }
+
+            Console.WriteLine();
         }
     }
 }
