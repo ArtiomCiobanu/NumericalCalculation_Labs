@@ -5,35 +5,40 @@ namespace Lab3
 {
     internal class Program
     {
-        private static int length = 3;
+        private static int length = 4;
 
-        private static double[,] A =
+        /*private static double[,] A = 
         {
-            //b, b, a2, a3
             {10, 1, 1},
             {2, 10, 1},
             {2, 2, 10}
-        };
-        /*{
-            {0.979, 0.427, 0.406, 0.348, 0.341},
+        };*/
+        private static double[,] A =
+        {
+            {0.979, 0.427, 0.406, 0.348},
+            {0.273, 3.951, 0.217, 0.327},
+            {0.318, 0.197, 2.875, 0.166},
+            {0.219, 0.231, 0.187, 3.276}
+
+            /*{0.979, 0.427, 0.406, 0.348, 0.341},
             {0.273, 3.951, 0.217, 0.327, 0.844},
             {0.318, 0.197, 2.875, 0.166, 0.131},
-            {0.219, 0.231, 0.187, 3.276, 0.381}
-        };*/
+            {0.219, 0.231, 0.187, 3.276, 0.381}*/
+        };
 
-        private static double[] B =
+        /*private static double[] B = 
         {
             12,
             13,
             14
-        };
-        /*private static double[] B =
+        };*/
+        private static double[] B =
         {
             0.341,
             0.844,
             0.131,
             0.381
-        };*/
+        };
 
         private static void Main()
         {
