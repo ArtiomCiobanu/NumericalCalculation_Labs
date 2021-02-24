@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Lab3
 {
@@ -15,23 +14,12 @@ namespace Lab3
         };*/
         private static double[,] A =
         {
-            {0.979, 0.427, 0.406, 0.348},
+            {2.979, 0.427, 0.406, 0.348},
             {0.273, 3.951, 0.217, 0.327},
             {0.318, 0.197, 2.875, 0.166},
             {0.219, 0.231, 0.187, 3.276}
-
-            /*{0.979, 0.427, 0.406, 0.348, 0.341},
-            {0.273, 3.951, 0.217, 0.327, 0.844},
-            {0.318, 0.197, 2.875, 0.166, 0.131},
-            {0.219, 0.231, 0.187, 3.276, 0.381}*/
         };
 
-        /*private static double[] B = 
-        {
-            12,
-            13,
-            14
-        };*/
         private static double[] B =
         {
             0.341,
@@ -43,6 +31,7 @@ namespace Lab3
         private static void Main()
         {
             IterationMethod();
+            //Seidel();
         }
 
         private static void IterationMethod()
@@ -136,6 +125,59 @@ namespace Lab3
             }
 
             return x;
+        }
+
+        private static void Seidel()
+        {
+            //double[,] a = new double[length, length];
+
+            //A.Display(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = i; j > 0; j--)
+                {
+                    var saved = A[i, length - 1];
+                    for (int k = length - 1; k > 0; k--)
+                    {
+                        A[i, k] = A[i, k - 1];
+                    }
+
+                    A[i, 0] = saved;
+                }
+            }
+
+            //A.Display(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    if (i == j)
+                    {
+                        continue;
+                    }
+
+                    A[i, j] /= A[i, i];
+                }
+            }
+
+            //A.Display(length);
+
+            double[] x = {1.0, 1, 1, 1};
+
+            for (int i = 0; i < length; i++)
+            {
+                var currentX = A[i, 0] * x[0];
+                for (int j = 1; j < length; j++)
+                {
+                    currentX -= A[i, j] * x[i];
+                }
+
+                x[i] = currentX;
+            }
+            
+            x.Display();
         }
     }
 }

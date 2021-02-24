@@ -16,6 +16,8 @@ namespace Lab3
 
                 Console.WriteLine();
             }
+            
+            Console.WriteLine();
         }
 
         public static void Display(this IEnumerable<double> array)
