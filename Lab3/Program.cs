@@ -5,13 +5,7 @@ namespace Lab3
     internal class Program
     {
         private static int length = 4;
-
-        /*private static double[,] A = 
-        {
-            {10, 1, 1},
-            {2, 10, 1},
-            {2, 2, 10}
-        };*/
+        
         private static double[,] A =
         {
             {2.979, 0.427, 0.406, 0.348},
